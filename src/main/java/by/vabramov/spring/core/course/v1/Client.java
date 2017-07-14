@@ -1,13 +1,13 @@
 package by.vabramov.spring.core.course.v1;
 
-public class ClientV1 {
+public class Client {
     private String id;
     private String fullName;
 
-    public ClientV1() {
+    public Client() {
     }
 
-    public ClientV1(String id, String fullName) {
+    public Client(String id, String fullName) {
         this.id = id;
         this.fullName = fullName;
     }

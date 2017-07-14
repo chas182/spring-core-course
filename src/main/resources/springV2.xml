@@ -5,14 +5,14 @@
  		http://www.springframework.org/schema/beans
  		http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
 
-    <bean id="client" class="by.vabramov.spring.core.course.v2.ClientV2">
+    <bean id="client" class="by.vabramov.spring.core.course.v2.Client">
         <constructor-arg value="1"/>
         <constructor-arg value="John Smith"/>
     </bean>
 
-    <bean id="eventLogger" class="by.vabramov.spring.core.course.v2.ConsoleEventLoggerV2"/>
+    <bean id="eventLogger" class="by.vabramov.spring.core.course.v2.ConsoleEventLogger"/>
 
-    <bean id="app" class="by.vabramov.spring.core.course.v2.AppV2">
+    <bean id="app" class="by.vabramov.spring.core.course.v2.App">
         <constructor-arg ref="client"/>
         <constructor-arg ref="eventLogger"/>
     </bean>
