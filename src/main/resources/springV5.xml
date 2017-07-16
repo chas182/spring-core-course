@@ -5,19 +5,17 @@
  		http://www.springframework.org/schema/beans
  		http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
 
-    <bean id="client-v3" class="by.vabramov.spring.core.course.v3.Client">
+    <bean id="client-v5" class="by.vabramov.spring.core.course.v5.Client">
         <constructor-arg value="1"/>
         <constructor-arg value="John Smith"/>
     </bean>
 
-    <bean id="eventLogger-v3" class="by.vabramov.spring.core.course.v3.ConsoleEventLogger"/>
-
-    <bean id="app" class="by.vabramov.spring.core.course.v3.App">
-        <constructor-arg ref="client-v3"/>
-        <constructor-arg ref="eventLogger-v3"/>
+    <bean id="app" class="by.vabramov.spring.core.course.v5.App">
+        <constructor-arg ref="client-v5"/>
+        <constructor-arg ref="cacheFileEventLogger-v5"/>
     </bean>
 
-    <bean id="event" class="by.vabramov.spring.core.course.v3.Event" scope="prototype">
+    <bean id="event" class="by.vabramov.spring.core.course.v5.Event" scope="prototype">
         <constructor-arg name="date">
             <bean class="java.util.Date"/>
         </constructor-arg>
@@ -26,4 +24,5 @@
         </constructor-arg>
     </bean>
 
+    <import resource="loggersV5.xml"/>
 </beans>

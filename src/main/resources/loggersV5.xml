@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="eventLogger-v5" class="by.vabramov.spring.core.course.v5.ConsoleEventLogger"/>
+
+    <bean id="fileEventLogger-v5" class="by.vabramov.spring.core.course.v5.FileEventLogger" init-method="init"
+          lazy-init="true">
+        <constructor-arg value="testv5-f.log"/>
+    </bean>
+
+    <bean id="cacheFileEventLogger-v5" class="by.vabramov.spring.core.course.v5.CacheFileEventLogger"
+          destroy-method="destroy" parent="fileEventLogger-v5">
+        <constructor-arg value="4"/>
+    </bean>
+</beans>

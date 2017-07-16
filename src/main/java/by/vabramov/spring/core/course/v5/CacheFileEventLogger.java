@@ -1,4 +1,4 @@
-package by.vabramov.spring.core.course.v4;
+package by.vabramov.spring.core.course.v5;
 
 import java.util.ArrayList;
 import java.util.List;

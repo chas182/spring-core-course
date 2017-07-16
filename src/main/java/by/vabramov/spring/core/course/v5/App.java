@@ -1,4 +1,4 @@
-package by.vabramov.spring.core.course.v4;
+package by.vabramov.spring.core.course.v5;
 
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -19,7 +19,7 @@ public class App {
     }
 
     public static void main(String[] args) {
-        ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("springV4.xml");
+        ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("springV5.xml");
 
         App app = context.getBean(App.class);
         Event event = context.getBean(Event.class);
