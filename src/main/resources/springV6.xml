@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+ 		http://www.springframework.org/schema/beans
+ 		http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+    <bean id="client-v6" class="by.vabramov.spring.core.course.v6.Client">
+        <constructor-arg value="1"/>
+        <constructor-arg value="John Smith"/>
+        <property name="greeting" value="Hello there!!!"/>
+    </bean>
+
+    <bean id="app" class="by.vabramov.spring.core.course.v6.App">
+        <constructor-arg ref="client-v6"/>
+        <constructor-arg ref="combinedEventLogger-v6"/>
+    </bean>
+
+    <bean id="event" class="by.vabramov.spring.core.course.v6.Event" scope="prototype">
+        <constructor-arg name="date">
+            <bean class="java.util.Date"/>
+        </constructor-arg>
+        <constructor-arg name="dateFormat">
+            <bean class="java.text.DateFormat" factory-method="getDateTimeInstance"/>
+        </constructor-arg>
+    </bean>
+
+    <import resource="loggersV6.xml"/>
+</beans>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="eventLogger-v6" class="by.vabramov.spring.core.course.v6.ConsoleEventLogger"/>
+
+    <bean id="fileEventLogger-v6" class="by.vabramov.spring.core.course.v6.FileEventLogger" init-method="init"
+          lazy-init="true">
+        <constructor-arg value="testv6-f.log"/>
+    </bean>
+
+    <bean id="cacheFileEventLogger-v6" class="by.vabramov.spring.core.course.v6.CacheFileEventLogger"
+          destroy-method="destroy" parent="fileEventLogger-v6">
+        <constructor-arg value="4"/>
+    </bean>
+
+    <bean id="combinedEventLogger-v6" class="by.vabramov.spring.core.course.v6.CombinedEventLogger">
+        <constructor-arg>
+            <list>
+                <ref bean="eventLogger-v6"/>
+                <ref bean="cacheFileEventLogger-v6"/>
+            </list>
+        </constructor-arg>
+    </bean>
+</beans>
